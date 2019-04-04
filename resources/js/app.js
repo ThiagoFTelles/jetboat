@@ -44,6 +44,7 @@ const app = new Vue({
 
 new Vue({
     el: '#qrcodegenerator',
+    components: qrcodegenerator
 });
 
 new Vue({
