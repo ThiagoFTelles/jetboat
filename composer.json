@@ -13,7 +13,8 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
-        "ext-bcmath": "*"
+        "ext-bcmath": "*",
+        "moontoast/math": "^1.1"
 
     },
     "require-dev": {
