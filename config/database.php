@@ -41,7 +41,7 @@ return [
         ],
 
         'mysql' => [
-            'driver' => 'mysql',
+            'driver' => 'mysqli',
             'host' => env('DB_HOST', 'sql143.main-hosting.eu'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'u563350231_mwave'),
