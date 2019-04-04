@@ -29,5 +29,4 @@ Route::get('/vehicles/navigating', 'VehiclesController@showNavigating')->middlew
 Route::get('/vehicles/disused', 'VehiclesController@showDisused')->middleware('verified');
 Route::resource('vehicles', 'VehiclesController')->middleware('verified');
 
-Route::view('/test', 'test')->middleware('verified');
 Route::view('/qrcode', 'marinas.qrcode');

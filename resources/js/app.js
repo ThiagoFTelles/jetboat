@@ -14,7 +14,7 @@ Vue.use(VueQrcodeReader);
 Vue.use(VueQr);
 
 Vue.component('qrcodereader', require('./components/QrCodeReader.vue').default);
-Vue.component('qrcodedrop2', require('./components/QrDrop.vue').default);
+// Vue.component('qrcodedrop2', require('./components/QrDrop.vue').default);
 Vue.component('qrcodegenerator', require('./components/QrGenerator.vue').default);
 
 const router = new VueRouter({
@@ -42,13 +42,10 @@ const app = new Vue({
     render: h => h(App)
 });
 
-const app2 = new Vue({
-    el: '#app2',
+new Vue({
+    el: '#qrcodegenerator',
 });
 
-const app3 = new Vue({
-    el: '#app3',
-});
 new Vue({
     el: '#qrcodereader',
     components: qrcodereader
