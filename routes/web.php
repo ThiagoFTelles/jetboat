@@ -21,7 +21,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/vehicles/{vehicle}/action', 'VehiclesController@actionMenu')->middleware('verified');
 Route::patch('/vehicles/{vehicle}/action', 'VehiclesController@action')->middleware('verified');
 
-Route::post('/vehicles/{vehicle}/generateqr', 'VehiclesController@generateQr')->middleware('verified');
+Route::get('/vehicles/{vehicle}/generateqr', 'VehiclesController@generateQr')->middleware('verified');
 
 Route::get('/vehicles/parked', 'VehiclesController@showParked')->middleware('verified');
 Route::get('/vehicles/out', 'VehiclesController@showOut')->middleware('verified');
