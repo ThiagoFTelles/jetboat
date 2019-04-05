@@ -8,7 +8,6 @@ class PagesController extends Controller
 {
     public function home()
     {
-        return view('marinas.index');
-        // return view('welcome');
+        return view('welcome');
     }
 }
