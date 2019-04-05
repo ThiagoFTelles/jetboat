@@ -1,6 +1,6 @@
 <template>
 <div>
-  <vue-qr :logoSrc="src2" :text="text" :size="300" :margin="0" :dotScale="1" :logoScale="1" :logoMargin="2" :logoCornerRadius="2"></vue-qr>
+  <VueQr :logoSrc="src2" :text="text" :size="300" :margin="0" :dotScale="1" :logoScale="1" :logoMargin="2" :logoCornerRadius="2"></VueQr>
 </div>
   
 </template>

@@ -11,7 +11,7 @@ import App from './components/App.vue'
 
 Vue.use(VueRouter) // Integrate the Vue-Router plugin
 Vue.use(VueQrcodeReader);
-Vue.use(VueQr);
+Vue.use(VueQr); 
 
 Vue.component('qrcodereader', require('./components/QrCodeReader.vue').default);
 // Vue.component('qrcodedrop2', require('./components/QrDrop.vue').default);
