@@ -517,7 +517,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("vue-qr", {
+      _c("VueQr", {
         attrs: {
           logoSrc: _vm.src2,
           text: _vm.text,
@@ -570,8 +570,8 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_qrcode_reader__WEBPACK_IMPORTED_MODULE_2__["default"]);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_qr__WEBPACK_IMPORTED_MODULE_3__["default"]);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('qrcodereader', __webpack_require__(/*! ./components/QrCodeReader.vue */ "./resources/js/components/QrCodeReader.vue").default);
-vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('qrcodedrop2', __webpack_require__(/*! ./components/QrDrop.vue */ "./resources/js/components/QrDrop.vue").default);
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('qrcodereader', __webpack_require__(/*! ./components/QrCodeReader.vue */ "./resources/js/components/QrCodeReader.vue").default); // Vue.component('qrcodedrop2', require('./components/QrDrop.vue').default);
+
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.component('qrcodegenerator', __webpack_require__(/*! ./components/QrGenerator.vue */ "./resources/js/components/QrGenerator.vue").default);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: 'history',
@@ -600,11 +600,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
     return h(_components_App_vue__WEBPACK_IMPORTED_MODULE_5__["default"]);
   }
 });
-var app2 = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: '#app2'
-});
-var app3 = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  el: '#app3'
+new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+  el: '#qrcodegenerator',
+  components: _components_QrGenerator_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
 });
 new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   el: '#qrcodereader',
