@@ -158,11 +158,24 @@ class VehiclesController extends Controller
 
     //     dd($response);
     // }
+
+    // public function generateQr(Request $request, Vehicle $vehicle)
+    // {
+    //     // $uuid = $request->input('value');
+    //     // $uuid = $vehicle->uuid;
+    //     return view('vehicles.vehicleqr', compact('vehicle'));
+    // }
     public function generateQr(Request $request, Vehicle $vehicle)
     {
-        // $uuid = $request->input('value');
-        // $uuid = $vehicle->uuid;
-        return view('vehicles.vehicleqr', compact('vehicle'));
+        //$uuid = $request->input('value');
+        $uuid = $vehicle->uuid;
+        $url = "https://www.qrcoder.co.uk/api/v1/?text=".$uuid."&size=1000&padding=2";
+        $client = new \GuzzleHttp\Client();
+        $request = $client->post($url);
+
+        $response = $request->getBody();
+       return $response;
+        //return view('vehicles.vehicleqr', compact('vehicle'));
     }
 
     public function action(Request $request, Vehicle $vehicle) 

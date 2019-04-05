@@ -8,6 +8,7 @@ class PagesController extends Controller
 {
     public function home()
     {
-        return view('welcome');
+        return view('marinas.index', compact('vehicle'));
+        // return view('welcome');
     }
 }
