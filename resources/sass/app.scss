@@ -20,3 +20,7 @@
 .collapse:not(.show){
   display: block;
 }
+
+a.navbar-item:hover{
+  background-color: unset;
+}
