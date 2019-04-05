@@ -8,6 +8,12 @@
     <div class="content">
         <a class="button is-link" href="/vehicles/{{$vehicle->uuid}}/action">Ação</a>
         <a class="button is-link" href="/vehicles/{{ $vehicle->uuid }}/edit">Editar</a>
+        <form action="/vehicles/{{$vehicle->uuid}}/generateqr" method="POST">
+            @csrf
+            <a class="button is-link" type="submit"">
+                        Gerar QrCode
+            </a>
+        </form>
     </div>
     
     <div class="box">

@@ -41,13 +41,7 @@
             </button>
 
         </form> -->
-        <form action="https://www.qrcoder.co.uk/api/v1/?text={{$vehicle->uuid}}&size=1000&padding=2" method="POST" style="margin-bottom:1em">
-            @csrf
-            <button class="button is-link" type="submit">
-                        Gerar QrCode
-            </button>
-
-        </form>
+        
     
         @include ('errors')
     </div>
