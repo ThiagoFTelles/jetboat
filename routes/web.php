@@ -30,3 +30,5 @@ Route::get('/vehicles/disused', 'VehiclesController@showDisused')->middleware('v
 Route::resource('vehicles', 'VehiclesController')->middleware('verified');
 
 Route::view('/qrcode', 'marinas.qrcode'); //leitor de QRcode
+
+Route::get('/vehicles/{vehicle}/generate-pdf','VehiclesController@generatePDF');

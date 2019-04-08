@@ -6,8 +6,8 @@ use App\Vehicle;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Validation\Rule;
-
-use GuzzleHttp\Client;
+use PDF;
+// use GuzzleHttp\Client;
 
 class VehiclesController extends Controller
 {
@@ -168,6 +168,14 @@ class VehiclesController extends Controller
     public function generateQr(Request $request, Vehicle $vehicle)
     {
         return view('vehicles.sticker', compact('vehicle'));
+    }
+
+    public function generatePDF(Vehicle $vehicle)
+    {
+        $name = $vehicle->owner_name.".pdf";
+        $pdf = PDF::loadView('vehicles.sticker', compact('vehicle'));
+  
+        return $pdf->download($name);
     }
 
     public function action(Request $request, Vehicle $vehicle) 

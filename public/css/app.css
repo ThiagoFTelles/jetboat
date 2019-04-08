@@ -10668,3 +10668,7 @@ a.text-dark:focus {
   display: block;
 }
 
+a.navbar-item:hover {
+  background-color: white;
+}
+
