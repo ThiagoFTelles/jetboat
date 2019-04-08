@@ -3,7 +3,7 @@
     <header class="navbar" style="background: white;">
       <div class="container">
         <div class="navbar-brand">
-          <a class="navbar-item" href="/marina" style="flex-shrink: initial;">
+          <a class="navbar-item" href="/marina" style="background-color: white; flex-shrink: initial;">
           <img 
                 style="width: 10%; height: auto; min-width:70px"
                 src="https://lh3.googleusercontent.com/FF1B64RN1FHJzKOQO3Oww6qRUj1Dwft9atCMyrqnSDfc1JLKKdddcMytKalYqDHNvXf0nWgPst1-6VuEZuIClU5lvtaQ2nqEfnobO9WiJhvec1aQ8pSwOFcJCrjId1viCrgHSx_1wesAOVj-u-P-57RTqHoZYS_wLF7JffvNaWl02wePUsiRNxk-WLVMH2VjT90t60f0URow1balXR9nVl-zlJF9Ki6Z97nUgMITug3xsUq-nfP3yRiZWZAuk9gx3MfLc4yqTHNe4jNMrBQ9LSZu0yh9QCJBhOUlZEqWrlvfzRHDKMMALaRap746IcLKJry5_x8QI4JgQFRKd-ZM0djX62wwX0Rj4Nz3PFaHdsYgCINCyZ90A3qhCaVqk5ggLW_hBPbfbgBpEpeNw-j6ujvNzLUnFhqsHWGLCtcleACje1kZJcvQvYYciIo5wrMz7pYnECnNmE1toi8j4Q-PfDBc6NSwMxHfzfbPGMrWpOrp7iHJAcuDBJUW8aA70t-fPX4nEmbo8mq4AdNT0GzUDyEwXTJpbSxtCUkz6B-P4SvP8DxOt228ITRjitrR9Oyuoa0eSZBxd5R626M-f-xsx5BvI6pii7DlIA-zWak=w1600-h758" alt="Marina Wave">
