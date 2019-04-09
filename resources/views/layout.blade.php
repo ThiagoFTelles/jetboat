@@ -23,7 +23,7 @@
     }
     .marina-home-link{
       color: maroon;
-      font-weight: 600;
+      font-family: sans-serif;
       width: 100%;
     }
   </style>
