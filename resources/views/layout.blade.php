@@ -6,12 +6,10 @@
   <title>MarinaWave</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.css">
   <!-- <link rel="stylesheet" type="text/css" href="{{ mix('/css/app.css') }}"> -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+  <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
-
   <link rel="stylesheet" href="https://unpkg.com/vue-qrcode-reader@1.3.1/dist/vue-qrcode-reader.css">
   <script src="https://unpkg.com/vue-qrcode-reader@1.3.1/dist/vue-qrcode-reader.browser.js"></script>
   <style>
@@ -22,6 +20,11 @@
     }
     @media (min-width: 800px) {
       .title {font-size: 3vw; }
+    }
+    .marina-home-link{
+      color: maroon;
+      font-weight: 600;
+      width: 100%;
     }
   </style>
 </head>
@@ -39,9 +42,9 @@
 
     </section>
     <script src="{{ mix('js/app.js') }}"></script>
-    <script src="{{ mix('js/clipboard-1.7.1.min.js') }}"></script>
-    <script src="https://bulma.io/vendor/js.cookie-2.1.4.min.js"></script>
-    <script src="{{ mix('js/main.js') }}"></script>
+    <!-- <script src="{{ mix('js/clipboard-1.7.1.min.js') }}"></script> -->
+    <!-- <script src="https://bulma.io/vendor/js.cookie-2.1.4.min.js"></script> -->
+    <!-- <script src="{{ mix('js/main.js') }}"></script> -->
     <script src="{{ mix('js/vendor.js') }}"></script>
     <script src="{{ mix('js/manifest.js') }}"></script>
 </body>

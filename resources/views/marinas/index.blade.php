@@ -24,22 +24,16 @@
 
 @endif
 
-<div class="box">
-    <br>
-    <a href="/vehicles"> 
+<a class="button box marina-home-link" href="/vehicles">
         Total: {{ $totalVehiclesAmount }}
-    </a>
-    <br><br>
-    <a href="/vehicles/parked"> 
+</a>
+<a class="button box marina-home-link" href="/vehicles/parked">
         Estacionados: {{ $parkedVehiclesAmount }}
-    </a>
-    <br>
-    <a href="/vehicles/navigating"> 
+</a>
+<a class="button box marina-home-link" href="/vehicles/navigating">
         Navegando: {{ $navigatingVehiclesAmount }}
-    </a>
-    <br>
-    <a href="/vehicles/out"> 
+</a>
+<a class="button box marina-home-link" href="/vehicles/out">
         Fora da Marina: {{ $outingsVehiclesAmount }}
-    </a>
-</div>
+</a>
 @endsection

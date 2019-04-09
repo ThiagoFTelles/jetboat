@@ -10655,6 +10655,12 @@ a.text-dark:focus {
   }
 }
 
+.marina-home-link {
+  margin: 5px;
+  font-weight: 600;
+  width: 100%;
+}
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
