@@ -6,7 +6,7 @@
     <h1 class="title">Embarcações fora da marina</h1>
     <div class="box">
         <ul>
-            @foreach ($vehicles->sortBy('name') as $vehicle)
+            @foreach ($vehicles->sortBy('owner_name') as $vehicle)
             @if($vehicle->status === 'out')
             <li style="padding: 5px 0 5px 0;text-transform: uppercase;">
                 <a href="/vehicles/{{ $vehicle->uuid }}">
