@@ -12,7 +12,7 @@
 <body>
     <div>
         <div
-            style="font-family: Arial, Helvetica, sans-serif; text-transform: uppercase; font-size:55px; text-align:center; width:100%;">
+            style="font-family: Arial, Helvetica, sans-serif;max-width: min-content; text-transform: uppercase; font-size:55px; text-align:center; width:100%;">
             <h4 style="margin:0;">{{ $vehicle->owner_name }}</h4>
             <?php
                 $uuid = $vehicle->uuid;

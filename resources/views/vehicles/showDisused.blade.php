@@ -8,7 +8,7 @@
         <ul>
             @foreach ($vehicles as $vehicle)
             @if($vehicle->isDisused())
-            <li>
+            <li style="padding: 5px 0 5px 0;">
                 <a href="/vehicles/{{ $vehicle->uuid }}">
                     {{$vehicle->name}}
                 </a>

@@ -253,7 +253,7 @@ class VehiclesController extends Controller
     protected function reValidateVehicle($vehicleId)
     {
         return request()->validate([
-            'name' => ['required', 'min:2', Rule::unique('vehicles')->ignore($vehicleId)],
+            'name' => ['required', 'min:2'],
             'owner_name'=> ['required', 'min:2'],
             'brand'=> ['min:3'],
             'model'=> ['min:3'],

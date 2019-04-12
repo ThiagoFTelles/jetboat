@@ -16,7 +16,7 @@ class CreateVehiclesTable extends Migration
         Schema::create('vehicles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('uuid')->unique();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('owner_name');
             $table->string('status');
             $table->timestamp('last_run')->nullable();

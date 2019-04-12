@@ -11,7 +11,7 @@
             <div class="field">
                 <div class="control">
                     <button class="button is-link" type="submit" name="action" value="parked">
-                        Estacionar
+                        Chegada
                     </button>
                     <p>Entrar na marina e estacionar embarcação</p><br>
                     <button class="button is-link" type="submit" name="action" value="navigating">
@@ -29,7 +29,7 @@
                     <button class="button is-link" type="submit" name="action" value="deleted">
                         Excluir
                     </button>
-                    <p>Excluir embarcação permanentemente</p>
+                    <p>Excluir embarcação desta marina</p>
                 </div>    
             </div>
         </form>

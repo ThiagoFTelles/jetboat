@@ -8,9 +8,9 @@
         <ul>
             @foreach ($vehicles as $vehicle)
             @if($vehicle->status === 'out')
-            <li>
+            <li style="padding: 5px 0 5px 0;text-transform: uppercase;">
                 <a href="/vehicles/{{ $vehicle->uuid }}">
-                    {{$vehicle->name}} @if ($vehicle->isDisused()) <span style="color:red"> ! </span> @endif
+                    {{$vehicle->owner_name}} - {{$vehicle->model}} @if ($vehicle->isDisused()) <span style="color:red"> ! </span> @endif
                 </a>
             </li>
             @endif
