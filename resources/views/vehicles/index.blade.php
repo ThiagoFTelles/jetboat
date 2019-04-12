@@ -5,7 +5,7 @@
     <h1 class="title">Embarcações</h1>
     <div class="box">
         <ul>
-            @foreach ($vehicles as $vehicle)
+            @foreach ($vehicles->sortBy('name') as $vehicle)
             <li style="padding: 5px 0 5px 0;text-transform: uppercase;">
                 <a href="/vehicles/{{ $vehicle->uuid }}">
                     {{$vehicle->owner_name}} - {{$vehicle->model}} - @include('vehicleStatus') @if ($vehicle->isDisused()) <span style="color:red"> ! </span> @endif
