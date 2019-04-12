@@ -3,6 +3,11 @@
 @section('content')
     @include ('flash')
     <h1 class="title">Embarcações</h1>
+    <div class="field">
+            <div class="control">
+                <a class="button is-link" href="/vehicles/create">Adicionar Embarcação</a>
+            </div>    
+        </div>
     <div class="box">
         <ul>
             @foreach ($vehicles->sortBy('owner_name') as $vehicle)
@@ -14,10 +19,6 @@
             @endforeach
         </ul>
     </div>
-        <div class="field">
-            <div class="control">
-                <a class="button is-link" href="/vehicles/create">Adicionar Embarcação</a>
-            </div>    
-        </div>
+        
         
 @endsection
