@@ -25,15 +25,15 @@
 @endif
 
 <a class="button box marina-home-link" href="/vehicles">
-        Total: {{ $totalVehiclesAmount }}
+        <h1 class="subtitle is-5" style="color: maroon;font-size: 1.094rem;">Total: {{ $totalVehiclesAmount }}</h1>
 </a>
 <a class="button box marina-home-link" href="/vehicles/parked">
-        Estacionados: {{ $parkedVehiclesAmount }}
+        <h1 class="subtitle is-5" style="color: maroon;font-size: 1.094rem;">Estacionados: {{ $parkedVehiclesAmount }}</h1>
 </a>
 <a class="button box marina-home-link" href="/vehicles/navigating">
-        Navegando: {{ $navigatingVehiclesAmount }}
+        <h1 class="subtitle is-5" style="color: maroon;font-size: 1.094rem;">Navegando: {{ $navigatingVehiclesAmount }}</h1>
 </a>
 <a class="button box marina-home-link" href="/vehicles/out">
-        Fora da Marina: {{ $outingsVehiclesAmount }}
+        <h1 class="subtitle is-5" style="color: maroon;font-size: 1.094rem;">Fora da Marina: {{ $outingsVehiclesAmount }}</h1>
 </a>
 @endsection

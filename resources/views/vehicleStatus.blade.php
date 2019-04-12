@@ -1,12 +1,12 @@
 @switch($vehicle->status)
     @case('out')
-        <span style="text-transform: initial;">Fora da marina</span>
+        <h2 class="subtitle is-6" style="color:#4a4a4a;text-transform: initial;">Fora da marina</h2>
         @break
 
     @case('navigating')
-        <span style="text-transform: initial;">Navegando</span>
+        <h2 class="subtitle is-6" style="color:#4a4a4a;text-transform: initial;">Navegando</h2>
         @break
 
     @case('parked')
-        <span style="text-transform: initial;">Estacionado</span>
+        <h2 class="subtitle is-6" style="color:#4a4a4a;text-transform: initial;">Estacionado</h2>
 @endswitch 
