@@ -185,7 +185,7 @@ class VehiclesController extends Controller
 
         $pdf = \PDF::loadView('vehicles.pdf', compact('vehicle'))
             ->setPaper([0, 0, 198.425, 198.425], 'landscape')->setOptions(['dpi' => 300, 'defaultFont' => 'sans-serif']); // 198.425 points = 7cm
-        return $pdf->stream($file);
+        return $pdf->download($file);
     }
 
     public function action(Request $request, Vehicle $vehicle) 
