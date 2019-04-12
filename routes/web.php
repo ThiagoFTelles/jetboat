@@ -21,8 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/vehicles/{vehicle}/action', 'VehiclesController@actionMenu')->middleware('verified');
 Route::patch('/vehicles/{vehicle}/action', 'VehiclesController@action')->middleware('verified');
 
-Route::get('/vehicles/{vehicle}/generateqr', 'VehiclesController@generateQr')->middleware('verified');
-
 Route::get('/vehicles/parked', 'VehiclesController@showParked')->middleware('verified');
 Route::get('/vehicles/out', 'VehiclesController@showOut')->middleware('verified');
 Route::get('/vehicles/navigating', 'VehiclesController@showNavigating')->middleware('verified');
@@ -31,4 +29,5 @@ Route::resource('vehicles', 'VehiclesController')->middleware('verified');
 
 Route::view('/qrcode', 'marinas.qrcode'); //leitor de QRcode
 
-Route::get('/vehicles/{vehicle}/generate-pdf','VehiclesController@generatePDF');
+Route::get('/vehicles/{vehicle}/generateqr', 'VehiclesController@generateQr')->middleware('verified'); //gera página html do qr code
+Route::get('/vehicles/{vehicle}/generate-pdf','VehiclesController@generatePDF'); //gera pdf do qr code

@@ -170,12 +170,22 @@ class VehiclesController extends Controller
         return view('vehicles.sticker', compact('vehicle'));
     }
 
+    // public function generatePDF(Vehicle $vehicle)
+    // {
+    //     $name = $vehicle->owner_name.".pdf";
+    //     $pdf = PDF::loadView('vehicles.sticker', compact('vehicle'));
+  
+    //     return $pdf->download($name);
+    // }
+
     public function generatePDF(Vehicle $vehicle)
     {
-        $name = $vehicle->owner_name.".pdf";
-        $pdf = PDF::loadView('vehicles.sticker', compact('vehicle'));
-  
-        return $pdf->download($name);
+        $name = $vehicle->owner_name;
+        $file = $name.'.pdf';
+
+        $pdf = \PDF::loadView('vehicles.pdf', compact('vehicle'))
+            ->setPaper([0, 0, 198.425, 198.425], 'landscape')->setOptions(['dpi' => 300, 'defaultFont' => 'sans-serif']); // 198.425 points = 7cm
+        return $pdf->stream($file);
     }
 
     public function action(Request $request, Vehicle $vehicle) 
