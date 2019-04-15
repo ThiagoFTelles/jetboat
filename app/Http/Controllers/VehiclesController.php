@@ -197,7 +197,7 @@ class VehiclesController extends Controller
 
         switch ($request->get('action')) {
             case 'deleted':
-                $vehicle->marina_id = null;
+                $vehicle->marina_id = 0;
                 break;
             case 'run':
                 $vehicle->last_run = now();
