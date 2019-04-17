@@ -16,7 +16,8 @@ Route::get('/', 'PagesController@home');
 
 Route::get('/marina', 'MarinasController@index')->middleware('verified');
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'MarinasController@index')->name('home');
 
 Route::get('/vehicles/{vehicle}/action', 'VehiclesController@actionMenu')->middleware('verified');
 Route::patch('/vehicles/{vehicle}/action', 'VehiclesController@action')->middleware('verified');
