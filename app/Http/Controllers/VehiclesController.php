@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Validation\Rule;
 use PDF;
+use Spatie\Activitylog\Models\Activity;
 // use GuzzleHttp\Client;
 
 class VehiclesController extends Controller
@@ -194,7 +195,7 @@ class VehiclesController extends Controller
         
         $vehicle->status = $request->input('action');
         $vehicle->marina_id = auth()->user()->id;
-
+        
         switch ($request->get('action')) {
             case 'deleted':
                 $vehicle->marina_id = 0;
@@ -209,6 +210,7 @@ class VehiclesController extends Controller
             case 'parked':
                 $vehicle->last_run = now();
                 break;
+            
         }
 
         if($vehicle->marina_id === null){$vehicle->marina_id = auth()->user()->id;}

@@ -6,16 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Carbon\Carbon;
-
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Vehicle extends Model
 {
+    use LogsActivity;
     use SoftDeletes;
     protected $dates = ['deleted_at', 'last_run'];
     protected $primaryKey = 'uuid';
     protected $keyType = 'string';
     public $incrementing = false;
     protected $guarded = ['id'];
+    protected static $logAttributes = ['status'];
 
     public function owner()
     {

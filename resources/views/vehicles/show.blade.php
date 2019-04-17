@@ -8,8 +8,8 @@
     <div class="content">
         <a class="button is-link" href="/vehicles/{{$vehicle->uuid}}/action">Ação</a>
         <a class="button is-link" href="/vehicles/{{ $vehicle->uuid }}/edit">Editar</a>
-        <a class="button is-link" target="_blank" href="/vehicles/{{ $vehicle->uuid }}/generateqr">Gerar QrCode</a>
-        <a class="button is-link" target="_blank" href="/vehicles/{{ $vehicle->uuid }}/generate-pdf">Gerar PDF</a>
+        <!-- <a class="button is-link" target="_blank" href="/vehicles/{{ $vehicle->uuid }}/generateqr">Gerar QrCode</a> -->
+        <a class="button is-link" target="_blank" href="/vehicles/{{ $vehicle->uuid }}/generate-pdf">Gerar QrCode</a>
         
         
     </div>

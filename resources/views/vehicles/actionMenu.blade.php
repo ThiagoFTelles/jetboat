@@ -25,7 +25,7 @@
                     <button class="button is-link" type="submit" name="action" value="run">
                         Funcionamento técnico
                     </button>
-                    <p>Ligar o motor de uma embarcação a muito tempo parada</p>
+                    <p>Ligar o motor de uma embarcação a muito tempo parada</p><br>
                     <button class="button is-link" type="submit" name="action" value="deleted">
                         Excluir
                     </button>
