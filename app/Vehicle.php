@@ -17,7 +17,7 @@ class Vehicle extends Model
     protected $keyType = 'string';
     public $incrementing = false;
     protected $guarded = ['id'];
-    protected static $logAttributes = ['status'];
+    protected static $logAttributes = ['id', 'uuid', 'name', 'owner_name', 'status', 'brand', 'model', 'year', 'register_number', 'marina_id'];
 
     public function owner()
     {

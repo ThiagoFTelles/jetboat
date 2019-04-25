@@ -47,6 +47,7 @@
     width: 100%;background-color: white;">
       <div>
           <a class="navbar-item" href="/marina" style="float: left;color:grey;">Home</a>
+          <a class="navbar-item" href="/report" style="float: left;color:grey;">Relatório</a>
           <a class="navbar-item" style="float: left;color:grey;" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
       </div>
