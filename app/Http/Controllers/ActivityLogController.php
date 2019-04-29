@@ -6,22 +6,25 @@ use Illuminate\Http\Request;
 use Spatie\Activitylog\Models\Activity;
 use Illuminate\Support\Facades\Auth;
 use App\Vehicle;
+use Carbon\Carbon;
 
 class ActivityLogController extends Controller
 {
     // public function index(Activity $activity)
-    public function index()
-    {
-        $marinaActions = Auth::user()->actions;   
-        // foreach ($marinaActions as $action) {
-        //     $uuid = $action->subject_id;
-        //     $vehicle = Vehicle::find($uuid);
-        //     $status = $vehicle->status;
-        //     return dd($status);
-        // }
-        // return dd($marinaActions);
+    public function index(Request $request)
+    {   
+        $di = $request->input('di');
+        $df = $request->input('df');    
 
-        return view('marinas.report', compact('marinaActions'));
+        if ($di) {
+            
+            $marinaActions = Auth::user()->actions->where('created_at', '>=', $di);
+            $marinaActions = $marinaActions->where('created_at', '<', $df);
+            
+            return view('marinas.reportrange', compact('marinaActions', 'di', 'df'));
+        }
+             
+        return view('marinas.report');
     }
     
 }
