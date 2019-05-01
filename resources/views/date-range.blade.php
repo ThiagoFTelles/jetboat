@@ -11,7 +11,7 @@
         <input style="width: auto;margin: 5px 0;" class="input is-rounded" type="date" id="date-final" name="date-final" onfocusout="validaDados()" data-date="" data-date-format="DD MMMM YYYY" required/>
     </div>
 
-    <button style="width: auto;margin: 5px 0;"  class="button is-primary" type="submit">Aplicar</button>
+    <button style="width: auto;margin: 5px 0;"  class="button is-primary" type="submit">Visualizar</button>
 </form>
 <br>
 

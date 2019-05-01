@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Spatie\Activitylog\Models\Activity;
 use Illuminate\Support\Facades\Auth;
-use App\Vehicle;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ActivityExport;
 use Carbon\Carbon;
 
 class ActivityLogController extends Controller
 {
-    // public function index(Activity $activity)
     public function index(Request $request)
     {   
         $di = $request->input('di');
@@ -25,6 +24,14 @@ class ActivityLogController extends Controller
         }
              
         return view('marinas.report');
+    }
+
+    public function exportReport(Request $request) 
+    {   
+        $di = $request->input('di');
+        $df = $request->input('df');    
+
+        return  Excel::download(new ActivityExport($di, $df), 'marinawave.xlsx');
     }
     
 }

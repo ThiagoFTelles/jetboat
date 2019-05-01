@@ -36,4 +36,6 @@ Route::get('/vehicles/{vehicle}/generate-pdf','VehiclesController@generatePDF');
 
 
 Route::get('/report', 'ActivityLogController@index');
+Route::get('/export-report', 'ActivityLogController@exportReport');
+
 Route::view('/test', 'marinas.test');
