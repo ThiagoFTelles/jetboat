@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MarianWave Report</title>
+    <title>MarinaWave app</title>
 </head>
 <body>
     @foreach ($marinaActions->groupby('subject_id') as $action)
@@ -13,6 +13,7 @@
                         <thead>
                             <tr>
                                 <th>{{ $action[0]['properties']['attributes']['owner_name'] }}</th>
+                                <th>{{ $action->count() }}</th>
                             </tr>
                             <tr>
                                 <th>Data</th>
