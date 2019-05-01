@@ -13,6 +13,7 @@
                         <thead>
                             <tr>
                                 <th>{{ $action[0]['properties']['attributes']['owner_name'] }}</th>
+                                <th></th>
                                 <th>{{ $action->count() }}</th>
                             </tr>
                             <tr>
