@@ -3,12 +3,12 @@
     {{ method_field('GET') }}
     <div class="field" >
         <label class="label" for="date-initial">Data Inicial</label>
-        <input style="width: auto;margin: 5px 0;" class="input is-rounded" type="date" id="date-initial" name="date-initial" onfocusout="validaDados()" data-date="" data-date-format="DD MMMM YYYY" required/>
+        <input style="width: auto;margin: 5px 0;" class="input is-rounded date" type="date" id="date-initial" name="date-initial" onfocusout="validaDados()" data-date="" data-date-format="DD MMMM YYYY" required/>
     </div>
 
     <div class="field" >
         <label class="label" for="date-initial">Data Final</label>
-        <input style="width: auto;margin: 5px 0;" class="input is-rounded" type="date" id="date-final" name="date-final" onfocusout="validaDados()" data-date="" data-date-format="DD MMMM YYYY" required/>
+        <input style="width: auto;margin: 5px 0;" class="input is-rounded date" type="date" id="date-final" name="date-final" onfocusout="validaDados()" data-date="" data-date-format="DD MMMM YYYY" required/>
     </div>
 
     <button style="width: auto;margin: 5px 0;"  class="button is-primary" type="submit">Visualizar</button>

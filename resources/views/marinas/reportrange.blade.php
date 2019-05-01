@@ -5,16 +5,21 @@
 @include ('errors')
 @include ('date-range')
 
-@if ($di)
+<div id="report">
+    <script type="text/javascript">
+        $(document).on('change', '.date', function hideReport(){
+    $("#report").fadeOut();
+        return false;
+        });
+    </script>
 
-    <form id="export-report" method="POST" action="/export-report/?di={{$di}} 00:00:00&df={{$df}} 59:59:99">
-        {{ csrf_field() }}
-        {{ method_field('GET') }}
-        <button style="width: auto;margin: 5px 0;"  class="button is-primary" type="submit">Baixar</button>
-    </form>
-@endif
-
-    <div id="report">
+    @if ($di)
+        <form id="export-report" method="POST" action="/export-report/?di={{$di}} 00:00:00&df={{$df}} 59:59:99">
+            {{ csrf_field() }}
+            {{ method_field('GET') }}
+            <button style="width: auto;margin: 5px 0;"  class="button is-primary" type="submit">Baixar</button>
+        </form>
+    @endif
 
         @foreach ($marinaActions->groupby('subject_id') as $action)
             @if  ($action[0]['created_at'] <= $df)
