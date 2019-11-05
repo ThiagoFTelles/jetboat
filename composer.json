@@ -1,9 +1,9 @@
 {
-    "name": "quilonova/marinawave",
+    "name": "thiagotelles/marinawave",
     "type": "project",
     "description": "Marina Wave app.",
     "keywords": [
-        "quilonova",
+        "thiagotelles",
         "marina",
         "marinawave",
         "jetsky",
@@ -52,7 +52,7 @@
         ],
         "files": [
             "app/helpers.php"
-        ] 
+        ]
     },
     "autoload-dev": {
         "psr-4": {

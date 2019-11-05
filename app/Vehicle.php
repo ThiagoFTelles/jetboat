@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Carbon\Carbon;
 use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\Traits\CausesActivity;
 
 class Vehicle extends Model
 {
     use LogsActivity;
+    use CausesActivity;
     use SoftDeletes;
     protected $dates = ['deleted_at', 'last_run'];
     protected $primaryKey = 'uuid';
@@ -18,6 +20,11 @@ class Vehicle extends Model
     public $incrementing = false;
     protected $guarded = ['id'];
     protected static $logAttributes = ['id', 'uuid', 'name', 'owner_name', 'status', 'brand', 'model', 'year', 'register_number', 'marina_id'];
+
+    public function datasheets()
+    {
+        return $this->hasMany(Datasheet::class, 'vehicle_id');
+    }
 
     public function owner()
     {

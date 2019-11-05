@@ -28,6 +28,9 @@
                         <h1 class="title is-6" style="color:#363636"> 
                             {{ $action[0]['properties']['attributes']['owner_name'] }}
                         </h1>
+                        @foreach ($vehicles->where('owner_name', $action[0]['properties']['attributes']['owner_name']) as $vehicle)
+                            @include('vehicleStatus')
+                        @endforeach
                     </a>
                         @foreach ($action as $a)
                             <ul>

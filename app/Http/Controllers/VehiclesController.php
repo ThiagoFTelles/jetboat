@@ -8,14 +8,16 @@ use Carbon\Carbon;
 use Illuminate\Validation\Rule;
 use PDF;
 use Spatie\Activitylog\Models\Activity;
+use App\Datasheet;
+
 // use GuzzleHttp\Client;
 
 class VehiclesController extends Controller
 {
     public function __construct()
     {
-        
-        $this->middleware('auth');        
+
+        $this->middleware('auth');
     }
 
     public function index()
@@ -25,26 +27,15 @@ class VehiclesController extends Controller
         return view('vehicles.index', compact('vehicles'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('vehicles.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $atributes = $this->validateVehicle();
-        
+
         $atributes['marina_id'] = auth()->id();
         $atributes['uuid'] = uuid();
         $atributes['last_run'] = new Carbon('now', 'America/Sao_Paulo');
@@ -66,40 +57,41 @@ class VehiclesController extends Controller
     public function show(Vehicle $vehicle)
     {
         $this->authorize('update', $vehicle);
-        
+
         return view('vehicles.show', compact('vehicle'));
+    }
+
+    public function showDatasheets(Vehicle $vehicle)
+    {
+        $this->authorize('update', $vehicle);
+        $datasheets = Datasheet::where('vehicle_id', $vehicle->id);
+        return view('vehicles.datasheet', compact('vehicle', 'datasheets'));
     }
 
     public function showParked()
     {
-        $vehicles = auth()->user()->vehicles;       
+        $vehicles = auth()->user()->vehicles;
         return view('vehicles.showParked', compact('vehicles'));
     }
 
     public function showNavigating()
     {
-        $vehicles = auth()->user()->vehicles;       
+        $vehicles = auth()->user()->vehicles;
         return view('vehicles.showNavigating', compact('vehicles'));
     }
 
     public function showOut()
     {
-        $vehicles = auth()->user()->vehicles;       
+        $vehicles = auth()->user()->vehicles;
         return view('vehicles.showOut', compact('vehicles'));
     }
 
     public function showDisused()
     {
-        $vehicles = auth()->user()->vehicles;       
+        $vehicles = auth()->user()->vehicles;
         return view('vehicles.showDisused', compact('vehicles'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Vehicle  $vehicle
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Vehicle $vehicle)
     {
         $this->authorize('update', $vehicle);
@@ -107,8 +99,8 @@ class VehiclesController extends Controller
         return view('vehicles.edit', compact('vehicle'));
     }
 
-    public function actionMenu(Vehicle $vehicle) 
-    {   
+    public function actionMenu(Vehicle $vehicle)
+    {
         //$this->authorize('update', $vehicle); //acessado apenas pela Marina dona da embarcação, sem QR code
         return view('vehicles.actionMenu', compact('vehicle'));
     }
@@ -175,27 +167,27 @@ class VehiclesController extends Controller
     // {
     //     $name = $vehicle->owner_name.".pdf";
     //     $pdf = PDF::loadView('vehicles.sticker', compact('vehicle'));
-  
+
     //     return $pdf->download($name);
     // }
 
     public function generatePDF(Vehicle $vehicle)
     {
         $name = $vehicle->owner_name;
-        $file = $name.'.pdf';
+        $file = $name . '.pdf';
 
         $pdf = \PDF::loadView('vehicles.pdf', compact('vehicle'))
             ->setPaper([0, 0, 198.425, 198.425], 'landscape')->setOptions(['dpi' => 300, 'defaultFont' => 'sans-serif']); // 198.425 points = 7cm
         return $pdf->download($file);
     }
 
-    public function action(Request $request, Vehicle $vehicle) 
+    public function action(Request $request, Vehicle $vehicle)
     {
         //$this->authorize('update', $vehicle); //acessado apenas pela Marina dona da embarcação, sem QR code
-        
+
         $vehicle->status = $request->input('action');
         $vehicle->marina_id = auth()->user()->id;
-        
+
         switch ($request->get('action')) {
             case 'deleted':
                 $vehicle->marina_id = 0;
@@ -210,17 +202,18 @@ class VehiclesController extends Controller
             case 'parked':
                 $vehicle->last_run = now();
                 break;
-            
         }
 
-        if($vehicle->marina_id === null){$vehicle->marina_id = auth()->user()->id;}
+        if ($vehicle->marina_id === null) {
+            $vehicle->marina_id = auth()->user()->id;
+        }
 
         $vehicle->update();
-        flash('Embarcação '.$vehicle->name.' atualizada.');
+        flash('Embarcação ' . $vehicle->name . ' atualizada.');
         return redirect('/marina');
     }
 
-    
+
     /**
      * Update the specified resource in storage.
      *
@@ -232,7 +225,7 @@ class VehiclesController extends Controller
     {
         $vehicleId = $vehicle->id;
         $vehicle->update($this->reValidateVehicle($vehicleId));
-        flash('Embarcação '.$vehicle->name.' atualizada.');
+        flash('Embarcação ' . $vehicle->name . ' atualizada.');
         return redirect('/vehicles');
     }
 
@@ -253,12 +246,12 @@ class VehiclesController extends Controller
     protected function validateVehicle()
     {
         return request()->validate([
-            'name' => ['required', 'min:2', 'unique:vehicles'],
-            'owner_name'=> ['required', 'min:2'],
-            'brand'=> ['min:3'],
-            'model'=> ['min:3'],
-            'year'=> ['min:4'],
-            'register_number'=> ['required', 'min:5', 'unique:vehicles'],
+            'name' => ['required', 'min:2'],
+            'owner_name' => ['required', 'min:2'],
+            'brand' => ['min:3'],
+            'model' => ['min:3'],
+            'year' => ['min:4'],
+            'register_number' => ['required', 'min:5', 'unique:vehicles'],
         ]);
     }
 
@@ -266,11 +259,11 @@ class VehiclesController extends Controller
     {
         return request()->validate([
             'name' => ['required', 'min:2'],
-            'owner_name'=> ['required', 'min:2'],
-            'brand'=> ['min:3'],
-            'model'=> ['min:3'],
-            'year'=> ['min:4'],
-            'register_number'=> ['required', 'min:5', Rule::unique('vehicles')->ignore($vehicleId)],
+            'owner_name' => ['required', 'min:2'],
+            'brand' => ['min:3'],
+            'model' => ['min:3'],
+            'year' => ['min:4'],
+            'register_number' => ['required', 'min:5', Rule::unique('vehicles')->ignore($vehicleId)],
         ]);
     }
 }
