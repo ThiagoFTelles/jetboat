@@ -9,8 +9,9 @@
     <a class="button is-link" href="/vehicles/{{$vehicle->uuid}}/action">Ação</a>
     <a class="button is-link" href="/vehicles/{{ $vehicle->uuid }}/edit">Editar</a>
     <!-- <a class="button is-link" href="/vehicles/{{ $vehicle->uuid }}/datasheets">Registros</a> -->
-    <!-- Assim que terminar o sistema de Registros ("datasheets") coloco este link online -->
+    <!-- Assim que terminar o sistema de Registros ("datasheets") coloco este link online  -->
     <a class="button is-link" target="_blank" href="/vehicles/{{ $vehicle->uuid }}/generate-pdf">QrCode</a>
+    <a class="button is-link" target="_blank" href="/vehicles/{{ $vehicle->uuid }}/generate-mini-pdf">Mini QrCode</a>
 
 
 </div>

@@ -181,6 +181,16 @@ class VehiclesController extends Controller
         return $pdf->download($file);
     }
 
+    public function generateMiniPDF(Vehicle $vehicle)
+    {
+        $name = $vehicle->owner_name;
+        $file = $name . '.pdf';
+
+        $pdf = \PDF::loadView('vehicles.mini-pdf', compact('vehicle'))
+            ->setPaper([0, 0, 75, 75], 'landscape')->setOptions(['dpi' => 300, 'defaultFont' => 'sans-serif']); // 56.6929 points = 2cm
+        return $pdf->download($file);
+    }
+
     public function action(Request $request, Vehicle $vehicle)
     {
         //$this->authorize('update', $vehicle); //acessado apenas pela Marina dona da embarcação, sem QR code
