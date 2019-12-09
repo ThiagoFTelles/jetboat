@@ -183,11 +183,11 @@ class VehiclesController extends Controller
 
     public function generateMiniPDF(Vehicle $vehicle)
     {
-        $name = $vehicle->owner_name;
+        $name = substr($vehicle->owner_name, 0, 10);
         $file = $name . '.pdf';
 
         $pdf = \PDF::loadView('vehicles.mini-pdf', compact('vehicle'))
-            ->setPaper([0, 0, 75, 75], 'landscape')->setOptions(['dpi' => 300, 'defaultFont' => 'sans-serif']); // 56.6929 points = 2cm
+            ->setPaper([0, 0, 65, 49], 'landscape')->setOptions(['dpi' => 600, 'defaultFont' => 'sans-serif']); // 56.6929 points = 2cm
         return $pdf->download($file);
     }
 
