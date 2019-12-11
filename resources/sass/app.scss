@@ -1,4 +1,3 @@
-
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
@@ -8,25 +7,30 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.marina-home-link{
-  margin:5px;
-  font-weight: 600;
-  width: 100%;
+.marina-home-link {
+    margin: 5px;
+    font-weight: 600;
+    width: 100%;
 }
 
 .navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .dropdown-menu {
-  display:contents;
+    display: contents;
 }
 
-.collapse:not(.show){
-  display: block;
+.collapse:not(.show) {
+    display: block;
 }
 
-a.navbar-item:hover{
-  background-color: white;
+a.navbar-item:hover {
+    background-color: white;
+}
+
+.panel_info_input {
+    width: 40px;
+    text-align: center;
 }

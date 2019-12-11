@@ -41,6 +41,10 @@ class VehiclesController extends Controller
         $atributes['last_run'] = new Carbon('now', 'America/Sao_Paulo');
         $atributes['status'] = 'parked';
 
+        $atributes['belongings'] = $request->input('belongings');
+        $atributes['gas_percentage'] = $request->input('gas_percentage');
+        $atributes['navigation_hours'] = $request->input('navigation_hours');
+
         $vehicle = Vehicle::create($atributes);
 
         flash('Sua embarcação foi cadastrada.');
@@ -105,71 +109,10 @@ class VehiclesController extends Controller
         return view('vehicles.actionMenu', compact('vehicle'));
     }
 
-    // public function generateQr(Request $request, Vehicle $vehicle)
-    // {
-    //     // $uuid = $request->input('value');
-    //     $uuid = $vehicle->uuid;
-    //     $url = "https://qrcode-monkey.p.rapidapi.com/qr/custom";
-    //     $body = '"body"=>{
-    //         "circle-zebra-vertical",
-    //         "eye"=>"frame13",
-    //         "eyeBall"=>"ball15",
-    //         "erf1"=>[],
-    //         "erf2"=>[],
-    //         "erf3"=>[],
-    //         "brf1"=>[],
-    //         "brf2"=>[],
-    //         "brf3"=>[],
-    //         "bodyColor"=>"#0277BD",
-    //         "bgColor"=>"#FFFFFF",
-    //         "eye1Color"=>"#075685",
-    //         "eye2Color"=>"#075685",
-    //         "eye3Color"=>"#075685",
-    //         "eyeBall1Color"=>"#0277BD",
-    //         "eyeBall2Color"=>"#0277BD",
-    //         "eyeBall3Color"=>"#0277BD",
-    //         "gradientColor1"=>"#075685",
-    //         "gradientColor2"=>"#0277BD",
-    //         "gradientType"=>"linear",
-    //         "gradientOnEyes"=>false,
-    //         "logo"=>"#facebook"
-    //         }';
-
-    //     $client = new \GuzzleHttp\Client(['headers' => ['X-RapidAPI-Key' => '53082871a8msh667b4ed9682a270p195055jsn8db63f912e01'], ['Content-Type' => 'application/json']]);
-    //     $request = $client->post($url, 
-    //             ['json' => [
-    //                 "data" =>"https://www.qrcode-monkey.com",
-    //                 "config"=>$body,
-    //                 "size"=>1000,
-    //                 "download"=>true,
-    //                 "file"=>"png"
-    //             ]]);
-
-    //     // $myBody['name'] = "Demo";
-    //     // $request = $client->post($url,  ['body'=>$myBody]);
-    //     $response = $request->send();
-
-    //     dd($response);
-    // }
-
-    // public function generateQr(Request $request, Vehicle $vehicle)
-    // {
-    //     // $uuid = $request->input('value');
-    //     // $uuid = $vehicle->uuid;
-    //     return view('vehicles.vehicleqr', compact('vehicle'));
-    // }
     public function generateQr(Request $request, Vehicle $vehicle)
     {
         return view('vehicles.sticker', compact('vehicle'));
     }
-
-    // public function generatePDF(Vehicle $vehicle)
-    // {
-    //     $name = $vehicle->owner_name.".pdf";
-    //     $pdf = PDF::loadView('vehicles.sticker', compact('vehicle'));
-
-    //     return $pdf->download($name);
-    // }
 
     public function generatePDF(Vehicle $vehicle)
     {
@@ -196,6 +139,9 @@ class VehiclesController extends Controller
         //$this->authorize('update', $vehicle); //acessado apenas pela Marina dona da embarcação, sem QR code
 
         $vehicle->status = $request->input('action');
+        $vehicle->belongings = $request->input('belongings');
+        $vehicle->gas_percentage = $request->input('gas_percentage');
+        $vehicle->navigation_hours = $request->input('navigation_hours');
         $vehicle->marina_id = auth()->user()->id;
 
         switch ($request->get('action')) {
@@ -234,6 +180,11 @@ class VehiclesController extends Controller
     public function update(Request $request, Vehicle $vehicle)
     {
         $vehicleId = $vehicle->id;
+
+        $vehicle->belongings = $request->input('belongings');
+        $vehicle->gas_percentage = $request->input('gas_percentage');
+        $vehicle->navigation_hours = $request->input('navigation_hours');
+
         $vehicle->update($this->reValidateVehicle($vehicleId));
         flash('Embarcação ' . $vehicle->name . ' atualizada.');
         return redirect('/vehicles');

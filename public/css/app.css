@@ -10678,3 +10678,8 @@ a.navbar-item:hover {
   background-color: white;
 }
 
+.panel_info_input {
+  width: 40px;
+  text-align: center;
+}
+

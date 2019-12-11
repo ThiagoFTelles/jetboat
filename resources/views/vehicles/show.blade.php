@@ -2,8 +2,12 @@
 
 @section('content')
 @include ('flash')
-<h1 class="title"> {{ $vehicle->name }} @if ($vehicle->isDisused()) <span style="color:red"> ! </span> @endif</h1>
+<h1 class="title" style="margin: 0;"> {{ $vehicle->name }} @if ($vehicle->isDisused()) <span style="color:red"> ! </span> @endif</h1>
 <h2 class="label" style="color: white;">@include('vehicleStatus')</h2>
+<div style="margin-bottom: 20px;">
+    <p style="color: white;margin: 0;">Combustível: {{ $vehicle->gas_percentage }}%</p>
+    <p style="color: white;margin: 0;">Horas: {{ $vehicle->navigation_hours }}</p>
+</div>
 
 <div class="content">
     <a class="button is-link" href="/vehicles/{{$vehicle->uuid}}/action">Ação</a>
@@ -49,6 +53,13 @@
         <label class="label" for="register_number">Registro</label>
         <div class="label">
             <h2>{{ $vehicle->register_number }}</h2>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label" for="register_number">Pertences</label>
+        <div class="label">
+            <p style="font-weight: 500;">{{ $vehicle->belongings }}</p>
         </div>
     </div>
 </div>
