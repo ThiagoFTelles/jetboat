@@ -78,6 +78,6 @@
             </div>
         </div>
 </form>
-
+<!-- test -->
 @include ('errors')
 @endsection
