@@ -20,8 +20,9 @@ class VehiclePolicy
 
     public function update(User $user, Vehicle $vehicle)
     {
-        if($vehicle->marina_id === null){ return true;}
-        return  $user->id === $vehicle->marina_id;
+        if ($vehicle->marina_id === null) {
+            return true;
+        }
+        return  $user->id == $vehicle->marina_id;
     }
-
 }
