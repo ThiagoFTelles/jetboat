@@ -55,11 +55,9 @@ class VehiclesController extends Controller
      * @param  \App\Vehicle  $vehicle
      * @return \Illuminate\Http\Response
      */
-    public function show(Vehicle $vehicle)
+    public function show(Vehicle $uuid)
     {
-        $this->authorize('update', $vehicle);
-
-        return view('vehicles.show', compact('vehicle'));
+        return $uuid;
     }
 
     public function showDatasheets(Vehicle $vehicle)

@@ -7,7 +7,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::namespace('Api')->name('api.')->group(function () {
-    Route::get('/vehicles', 'VehiclesController@index')->name('vehicles');
+    Route::prefix('/vehicles')->group(function () {
+        Route::get('/', 'VehiclesController@index')->name('vehicles');
+        Route::get('/{uuid}', 'VehiclesController@show')->name('vehicle');
+    });
 });
 
 // Route::get('/ok', function () {
