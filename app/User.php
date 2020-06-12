@@ -6,10 +6,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Activitylog\Traits\CausesActivity;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use HasApiTokens, Notifiable;
     use CausesActivity;
 
     /**
@@ -28,7 +29,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token', 
+        'password', 'remember_token',
     ];
 
     public function vehicles()
@@ -43,6 +44,6 @@ class User extends Authenticatable
 
     public function isNotVerified()
     {
-        return ! $this->isVerified();
+        return !$this->isVerified();
     }
 }
