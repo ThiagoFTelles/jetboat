@@ -12,6 +12,7 @@ Route::namespace('Api')->name('api.')->group(function () {
         Route::get('/{uuid}', 'VehiclesController@show')->name('single_vehicle');
         Route::post('/', 'VehiclesController@store')->name('store_vehicle');
         Route::put('/{uuid}', 'VehiclesController@update')->name('update_vehicle');
+        Route::delete('/{uuid}', 'VehiclesController@destroy')->name('delete_vehicle');
     });
 });
 

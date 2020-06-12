@@ -29,9 +29,12 @@ class VehiclesController extends Controller
         return response()->json($data);
     }
 
-    public function show(Vehicle $uuid)
+    public function show($uuid)
     {
-        $data = ['data' => $uuid];
+        $vehicle = $this->vehicle->find($uuid);
+        if (!$vehicle) return response()->json(ApiError::errorMessage('veículo não encontrado', 1009), 404);
+
+        $data = ['data' => $vehicle];
         return response()->json($data);
     }
 
@@ -56,12 +59,13 @@ class VehiclesController extends Controller
         } catch (\Exception $error) {
             if (config('app.debug')) {
                 return response()->json(
-                    ApiError::errorMessage($error->getMessage(), 1010)
+                    ApiError::errorMessage($error->getMessage(), 1010),
+                    500
                     //TODO: Fazer lista de códigos de erros, aqui eu considero que este erro tem o código fictício = 1010.
                 );
             }
             //aqui em baixo, em vez de usar "$error->getMessage()" eu posso criar uma mensagem padrão para aparecer quando o debug estiver desativado.
-            return response()->json(ApiError::errorMessage($error->getMessage(), 1010));
+            return response()->json(ApiError::errorMessage($error->getMessage(), 1010), 500);
         }
     }
 
@@ -81,39 +85,39 @@ class VehiclesController extends Controller
         } catch (\Exception $error) {
             if (config('app.debug')) {
                 return response()->json(
-                    ApiError::errorMessage($error->getMessage(), 1011)
+                    ApiError::errorMessage($error->getMessage(), 1011),
+                    500
                     //TODO: Fazer lista de códigos de erros, aqui eu considero que este erro tem o código fictício = 1011.
                 );
             }
             //aqui em baixo, em vez de usar "$error->getMessage()" eu posso criar uma mensagem padrão para aparecer quando o debug estiver desativado.
-            return response()->json(ApiError::errorMessage($error->getMessage(), 1011));
+            return response()->json(ApiError::errorMessage($error->getMessage(), 1011), 500);
         }
     }
 
-    // public function update(Request $request, Vehicle $vehicle)
-    // {
-    //     try {
+    public function destroy(Vehicle $uuid)
+    {
+        try {
+            //TODO: $this->authorize('update', $uuid);
+            $uuid->delete();
+            $uuid->status = 'deleted';
+            $uuid->marina_id = 0;
+            $uuid->belongings = "";
 
-    //         $vehicleId = $vehicle->id;
-    //         $vehicle->belongings = $request->input('belongings');
-    //         $vehicle->gas_percentage = $request->input('gas_percentage');
-    //         $vehicle->navigation_hours = $request->input('navigation_hours');
-
-    //         $vehicle->update($this->reValidateVehicle($vehicleId));
-    //         $return = ['data' => ['msg' => 'Veículo criado com sucesso!', 'vehicle' => $vehicle]];
-    //         return response()->json($return, 201);
-    //     } catch (\Exception $error) {
-    //         if (config('app.debug')) {
-    //             return response()->json(
-    //                 ApiError::errorMessage($error->getMessage(), 1011)
-    //                 //TODO: Fazer lista de códigos de erros, aqui eu considero que este erro tem o código fictício = 1011.
-    //             );
-    //         }
-    //         //aqui em baixo, em vez de usar "$error->getMessage()" eu posso criar uma mensagem padrão para aparecer quando o debug estiver desativado.
-    //         return response()->json(ApiError::errorMessage($error->getMessage(), 1011));
-    //     }
-
-    // }
+            $return = ['data' => ['msg' => 'Embarcação ' . $uuid->name . ' apagada!', 'vehicle' => $uuid]];
+            return response()->json($return, 200);
+        } catch (\Exception $error) {
+            if (config('app.debug')) {
+                return response()->json(
+                    ApiError::errorMessage($error->getMessage(), 1012),
+                    500
+                    //TODO: Fazer lista de códigos de erros, aqui eu considero que este erro tem o código fictício = 1012.
+                );
+            }
+            //aqui em baixo, em vez de usar "$error->getMessage()" eu posso criar uma mensagem padrão para aparecer quando o debug estiver desativado.
+            return response()->json(ApiError::errorMessage($error->getMessage(), 1012), 500);
+        }
+    }
 
     protected function validateVehicle()
     {
