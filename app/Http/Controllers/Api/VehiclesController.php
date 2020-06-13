@@ -119,6 +119,42 @@ class VehiclesController extends Controller
         }
     }
 
+    public function showDatasheets(Vehicle $vehicle)
+    {
+        // $this->authorize('update', $vehicle);
+        // $datasheets = Datasheet::where('vehicle_id', $vehicle->id);
+        // return view('vehicles.datasheet', compact('vehicle', 'datasheets'));
+    }
+
+    public function showParked()
+    {
+        // $vehicles = auth()->user()->vehicles;
+        // return view('vehicles.showParked', compact('vehicles'));
+    }
+
+    public function showNavigating()
+    {
+        // $vehicles = auth()->user()->vehicles;
+        // return view('vehicles.showNavigating', compact('vehicles'));
+    }
+
+    public function showOut()
+    {
+        // $vehicles = auth()->user()->vehicles;
+        // return view('vehicles.showOut', compact('vehicles'));
+    }
+
+    public function showDisused()
+    {
+        // $vehicles = auth()->user()->vehicles;
+        // return view('vehicles.showDisused', compact('vehicles'));
+    }
+
+    public function generateQr(Request $request, Vehicle $vehicle)
+    {
+        // return view('vehicles.sticker', compact('vehicle'));
+    }
+
     protected function validateVehicle()
     {
         return request()->validate([
