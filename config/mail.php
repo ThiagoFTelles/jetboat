@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'admin@marinawave.com.br'),
+        'name' => env('MAIL_FROM_NAME', 'MarinaWave'),
     ],
 
     /*
@@ -72,6 +72,7 @@ return [
     */
 
     'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    // se 'tls' não funcionar, colocar ''
 
     /*
     |--------------------------------------------------------------------------

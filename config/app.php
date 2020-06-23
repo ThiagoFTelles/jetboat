@@ -135,6 +135,7 @@ return [
     */
 
     'providers' => [
+        Laravel\Passport\PassportServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
