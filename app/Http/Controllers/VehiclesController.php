@@ -142,6 +142,7 @@ class VehiclesController extends Controller
         $vehicle->belongings = $request->input('belongings');
         $vehicle->gas_percentage = $request->input('gas_percentage');
         $vehicle->navigation_hours = $request->input('navigation_hours');
+        $vehicle->destination = $request->input('destination');
         $vehicle->marina_id = auth()->user()->id;
 
         switch ($request->get('action')) {
@@ -184,6 +185,7 @@ class VehiclesController extends Controller
         $vehicle->belongings = $request->input('belongings');
         $vehicle->gas_percentage = $request->input('gas_percentage');
         $vehicle->navigation_hours = $request->input('navigation_hours');
+        $vehicle->destination = $request->input('destination');
 
         $vehicle->update($this->reValidateVehicle($vehicleId));
         flash('Embarcação ' . $vehicle->name . ' atualizada.');

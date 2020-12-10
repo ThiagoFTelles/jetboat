@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPanelInfoToVehiclesTable extends Migration
+class AddDestinationToVehiclesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class AddPanelInfoToVehiclesTable extends Migration
     public function up()
     {
         Schema::table('vehicles', function (Blueprint $table) {
-            $table->integer('gas_percentage')->nullable();
-            $table->integer('navigation_hours')->nullable();
+            $table->string('destination')->nullable();
         });
     }
 
@@ -27,9 +26,7 @@ class AddPanelInfoToVehiclesTable extends Migration
     public function down()
     {
         Schema::table('vehicles', function (Blueprint $table) {
-            $table->dropColumn('gas_percentage');
-            $table->dropColumn('navigation_hours');
-            $table->dropColumn('belongings');
+            $table->dropColumn('destination');
         });
     }
 }

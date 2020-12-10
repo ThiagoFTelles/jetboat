@@ -16,6 +16,12 @@
 
             <p>Pertences:</p>
             <textarea name="belongings" rows="4" cols="20" id="belongings" style="width: 100%;" class="panel_info_input">{{ $vehicle->belongings }}</textarea>
+
+            @if ($vehicle->status == 'parked')
+            <p><span style="color:red">*</span>Destino:</p>
+            <textarea name="destination" rows="4" cols="20" id="destination" style="width: 100%;" class="panel_info_input" required></textarea>
+            @endif
+
             <br>
             <br>
             <br>

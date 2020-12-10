@@ -28,6 +28,15 @@
         </div>
     </div>
 
+    @if ($vehicle->status !== 'parked')
+    <div class="field">
+        <label class="label" for="destination">Destino</label>
+        <div class="label">
+            <h2>{{ $vehicle->destination }}</h2>
+        </div>
+    </div>
+    @endif
+
     <div class="field">
         <label class="label" for="brand">Marca</label>
         <div class="label">

@@ -1,8 +1,8 @@
 {
-    "/js/app.js": "/js/app.js?id=cba86c046164ef7bba1a",
-    "/css/app.css": "/css/app.css?id=218456c2e5315ee62e12",
-    "/js/clipboard-1.7.1.min.js": "/js/clipboard-1.7.1.min.js?id=601fd6a19e3834a19c62",
-    "/js/main.js": "/js/main.js?id=9a46acb4b9e3f33c2242",
-    "/js/manifest.js": "/js/manifest.js?id=844cdbfe9e6b6b56ae8f",
-    "/js/vendor.js": "/js/vendor.js?id=1bf1c7a1b446d618d2ec"
+    "/js/manifest.js": "/js/manifest.js?id=01c8731923a46c30aaed",
+    "/js/app.js": "/js/app.js?id=f42f2f33ddcde043367b",
+    "/css/app.css": "/css/app.css?id=98724329c8167cbcec88",
+    "/js/clipboard-1.7.1.min.js": "/js/clipboard-1.7.1.min.js?id=06129efdb257946da333",
+    "/js/main.js": "/js/main.js?id=5ce4c05eea4cf1b2328f",
+    "/js/vendor.js": "/js/vendor.js?id=aedf8da6d25664ab044a"
 }
